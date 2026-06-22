@@ -17,7 +17,12 @@ class PullRequestChecker {
       },
     );
 
-    debug(JSON.stringify(commits));
+    debug(
+      JSON.stringify({
+        ...context.repo,
+        pull_number: context.issue.number,
+      }),
+    );
 
     debug(`${commits.data.length} commit(s) in the pull request`);
 
