@@ -14,7 +14,6 @@ class PullRequestChecker {
       {
         ...context.repo,
         pull_number: context.issue.number,
-        per_page: 100,
       },
     );
 
