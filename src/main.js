@@ -17,9 +17,6 @@ class PullRequestChecker {
       },
     );
 
-    debug('TEST1');
-    debug(JSON.stringify(context));
-
     debug(`${commits.data.length} commit(s) in the pull request`);
 
     let blockedCommits = 0;
