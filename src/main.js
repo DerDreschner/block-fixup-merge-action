@@ -17,8 +17,8 @@ class PullRequestChecker {
       },
     );
 
-    debug(
-      JSON.stringify({
+    debug('TEST:'
+      .JSON.stringify({
         ...context.repo,
         pull_number: context.issue.number,
       }),
