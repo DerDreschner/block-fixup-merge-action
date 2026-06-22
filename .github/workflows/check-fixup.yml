@@ -1,6 +1,6 @@
 name: Pull request checks
 
-on: pull_request
+on: push
 
 jobs:
   commit-message-check:
@@ -10,6 +10,6 @@ jobs:
 
     steps:
       - name: Run check
-        uses: skjnldsv/block-fixup-merge-action@main
+        uses: ./
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}

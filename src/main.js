@@ -1,8 +1,7 @@
-const {
+import {
   debug, error, getInput, setFailed,
-} = require('@actions/core');
-
-const { context, getOctokit } = require('@actions/github');
+} from '@actions/core';
+import { context, getOctokit } from '@actions/github';
 
 class PullRequestChecker {
   constructor(repoToken) {
@@ -10,7 +9,7 @@ class PullRequestChecker {
   }
 
   async process() {
-    const commits = await this.client.paginate(
+    const commits = await this.client.request(
       'GET /repos/{owner}/{repo}/pulls/{pull_number}/commits',
       {
         ...context.repo,
@@ -19,10 +18,10 @@ class PullRequestChecker {
       },
     );
 
-    debug(`${commits.length} commit(s) in the pull request`);
+    debug(`${commits.data.length} commit(s) in the pull request`);
 
     let blockedCommits = 0;
-    commits.forEach(({ commit: { message }, sha, url }) => {
+    commits.data.forEach(({ commit: { message }, sha, url }) => {
       const isAutosquash = message.startsWith('fixup!') || message.startsWith('squash!');
 
       if (isAutosquash) {
@@ -46,4 +45,5 @@ async function run() {
   }
 }
 
+// noinspection JSIgnoredPromiseFromCall
 run();
