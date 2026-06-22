@@ -30,6 +30,7 @@ class PullRequestChecker {
         blockedCommits += 1;
       }
     });
+    
 
     if (blockedCommits) {
       throw Error(`${blockedCommits} commit(s) need to be squashed`);
