@@ -8,6 +8,7 @@ class PullRequestChecker {
     this.client = getOctokit(repoToken);
   }
 
+  
   async process() {
     const commits = await this.client.request(
       'GET /repos/{owner}/{repo}/pulls/{pull_number}/commits',
