@@ -1,5 +1,5 @@
 import {
-  debug, error, getInput, setFailed,
+  debug, error, getInput, setFailed, info
 } from '@actions/core';
 import { context, getOctokit } from '@actions/github';
 
@@ -17,12 +17,11 @@ class PullRequestChecker {
       },
     );
 
-    debug('TEST:'
+    info('TEST:'
       .JSON.stringify({
         ...context.repo,
         pull_number: context.issue.number,
-      }),
-    );
+      }));
 
     debug(`${commits.data.length} commit(s) in the pull request`);
 
