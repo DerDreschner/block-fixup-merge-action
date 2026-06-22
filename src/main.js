@@ -17,7 +17,7 @@ class PullRequestChecker {
       },
     );
 
-    info('TEST:'
+    error('TEST:'
       .JSON.stringify({
         ...context.repo,
         pull_number: context.issue.number,
