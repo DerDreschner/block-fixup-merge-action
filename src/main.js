@@ -17,11 +17,8 @@ class PullRequestChecker {
       },
     );
 
-    error('TEST:'
-      .JSON.stringify({
-        ...context.repo,
-        pull_number: context.issue.number,
-      }));
+    error('TEST1')
+    error(JSON.stringify(context))
 
     debug(`${commits.data.length} commit(s) in the pull request`);
 
