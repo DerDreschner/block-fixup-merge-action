@@ -17,8 +17,8 @@ class PullRequestChecker {
       },
     );
 
-    error('TEST1')
-    error(JSON.stringify(context))
+    debug('TEST1');
+    debug(JSON.stringify(context));
 
     debug(`${commits.data.length} commit(s) in the pull request`);
 
