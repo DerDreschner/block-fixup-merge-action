@@ -36533,11 +36533,13 @@ class PullRequestChecker {
       {
         ...github_context.repo,
         pull_number: github_context.issue.number,
-        per_page: 100,
       },
     );
 
-    core_debug(`${commits.length} commit(s) in the pull request`);
+    core_debug('TEST1');
+    core_debug(JSON.stringify(github_context));
+
+    core_debug(`${commits.data.length} commit(s) in the pull request`);
 
     let blockedCommits = 0;
     commits.data.forEach(({ commit: { message }, sha, url }) => {
@@ -36564,6 +36566,7 @@ async function run() {
   }
 }
 
+// noinspection JSIgnoredPromiseFromCall
 run();
 
 })();
